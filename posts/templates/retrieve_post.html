@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+        <div>
+            {% for post in posts %}
+            <div style="border: 2px solid gray; margin:2rem; padding: 2rem;">
+                <div style="display: flex;">
+                    <p style="color: gray;margin-right: 1rem;">{{ post.created }}</p>
+                    <p style="color: red;margin-right: 1rem;">{{ post.created_by }}</p>
+                    <p>{{ post.votes }}</p>
+                </div>
+                <div>
+                    <h3>{{ post.name }}</h3>
+                </div>
+                <div>
+                    <p>{{ post.data }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div>
+        <a href="update_post"><button>Update</button></a>
+        <a href="delete"><button>Delete</button></a>
+    </div>
+{% endblock %}

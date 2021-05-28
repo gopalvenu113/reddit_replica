@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+        <div>
+            {% for post in posts %}
+            <a href="{{ post.id }}"><div style="border: 2px solid gray; margin:2rem; padding: 2rem;">
+                <div style="display: flex;">
+                    <p style="color: gray;margin-right: 1rem;">{{ post.created }}</p>
+                    <p style="color: red;margin-right: 1rem;">{{ post.created_by }}</p>
+                    {% if post.votes %}
+                        <p>{{ post.votes }}</p>
+                    {% endif %}
+                </div>
+                <div>
+                    <h3>{{ post.name }}</h3>
+                </div>
+                {% if post.data %}
+                    <div>
+                        <p>{{ post.data }}</p>
+                    </div>
+                {% endif %}
+            </div></a>
+            {% endfor %}
+        </div>
+    </div>
+    <div>
+        <a href="create_post"><button>Create</button></a>
+    </div>
+{% endblock %}

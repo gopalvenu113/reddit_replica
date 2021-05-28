@@ -1,0 +1,12 @@
+<div>
+    <form action="{% url 'posts:update' post.id %}" method="POST">
+        {% csrf_token %}
+        <label for='data'>Post data</label>
+        <input type="text" name='data' id='data' value="{{post.data}}">
+        <br>
+        <label for='votes'>Votes</label>
+        <input type="number" name='votes' id='votes' value="{{post.votes}}">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
